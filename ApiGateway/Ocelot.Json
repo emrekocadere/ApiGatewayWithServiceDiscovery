@@ -1,0 +1,32 @@
+{
+    "Routes": [
+        {
+            "UseServiceDiscovery": true,
+            "ServiceName": "Car",
+            "DownstreamPathTemplate": "/api/Car",
+            "DownstreamScheme": "http",
+            "UpstreamPathTemplate": "/gateway/car",
+            "UpstreamHttpMethod": [
+                "Post"
+            ]
+        },
+        {
+            "UseServiceDiscovery": true,
+            "ServiceName": "Plane",
+            "DownstreamPathTemplate": "/api/plane",
+            "DownstreamScheme": "http",
+            "UpstreamPathTemplate": "/gateway/plane",
+            "UpstreamHttpMethod": [
+                "Post"
+            ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:5041",
+        "ServiceDiscoveryProvider": {
+            "Host": "localhost",
+            "Port": 8500,
+            "Type": "Consul"
+        }
+    }
+}
